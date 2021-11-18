@@ -1,0 +1,9 @@
+# dist
+node_modules
+# lock
+package-lock.json
+# Ignore artifacts:
+dist
+coverage
+# cache
+.cache
