@@ -8,6 +8,7 @@
 - add a transaction(s) in a block
 - generating a hash
 - generating a proof of work
+- create a genesis block in constructor
 
 #### Getting started
 
