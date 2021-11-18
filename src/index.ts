@@ -1,6 +1,10 @@
 import BlockChain from './blockchain';
 
 const bitcoin = new BlockChain();
+
+
+
+
 // // create new blocks
 // bitcoin.createNewBlock(54321, 'sdsadasds', 'non2');
 // bitcoin.createNewBlock(54322, 'dsadsadas', 'non2');
@@ -13,21 +17,21 @@ const bitcoin = new BlockChain();
 // bitcoin.createNewTransaction(50, 'sender:address:frog', 'recipient:address');
 // bitcoin.createNewBlock(54323, 'dsadsadas2', 'non2');
 
-let prevBlockHash = '0000SHA-1234556678';
-let currBlockData = [
-  {
-    amount: 100,
-    sender: 'sender:address:frog',
-    recipient: 'recipient:address',
-  },
-  {
-    amount: 70,
-    sender: 'sender:address:jane',
-    recipient: 'recipient:address',
-  },
-];
+// let prevBlockHash = '0000SHA-1234556678';
+// let currBlockData = [
+//   {
+//     amount: 100,
+//     sender: 'sender:address:frog',
+//     recipient: 'recipient:address',
+//   },
+//   {
+//     amount: 70,
+//     sender: 'sender:address:jane',
+//     recipient: 'recipient:address',
+//   },
+// ];
 
-// let block = bitcoin.hasBlock(prevBlockHash, currBlockData, 54322);
-// console.log(block);
-const noncePoW = bitcoin.proofOfWork(prevBlockHash, currBlockData);
-console.log(noncePoW)
+// // let block = bitcoin.hasBlock(prevBlockHash, currBlockData, 54322);
+// // console.log(block);
+// const noncePoW = bitcoin.proofOfWork(prevBlockHash, currBlockData);
+console.log(bitcoin)

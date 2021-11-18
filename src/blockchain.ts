@@ -22,10 +22,12 @@ class Blockchain {
   constructor() {
     this.chain = [];
     this.pendingTransactions = [];
+    // init a genesis block
+    this.createNewBlock(1, 'dummy-000-block-genesis', 'dummy-000-hash-genesis');
   }
 
   /**
-   * @description create a new block in the chain & clear any pending transactions,
+   * @description create a new block in the chain & clear all pending transactions,
    * assign all pending transactions to that new block created
    *
    * @param nonce
@@ -33,7 +35,7 @@ class Blockchain {
    * @param hash
    * @returns {BlockType}
    */
-  createNewBlock = (nonce: number, prevBlockHash: any, hash: any) => {
+  createNewBlock = (nonce: number, prevBlockHash: string, hash: string) => {
     const newBlock: BlockType = {
       index: this.chain.length + 1,
       timestamp: Date.now(),
