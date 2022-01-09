@@ -2,36 +2,28 @@ import BlockChain from './blockchain';
 
 const bitcoin = new BlockChain();
 
-
-
-
-// // create new blocks
-// bitcoin.createNewBlock(54321, 'sdsadasds', 'non2');
-// bitcoin.createNewBlock(54322, 'dsadsadas', 'non2');
-// // create a transaction
-// bitcoin.createNewTransaction(750, 'sender:address:jane', 'recipient:address');
-// bitcoin.createNewTransaction(50, 'sender:address:adeel', 'recipient:address');
-// bitcoin.createNewTransaction(250, 'sender:address:john', 'recipient:address');
-// // create new blocks
-// bitcoin.createNewBlock(54323, 'dsadsadas', 'non2');
-// bitcoin.createNewTransaction(50, 'sender:address:frog', 'recipient:address');
-// bitcoin.createNewBlock(54323, 'dsadsadas2', 'non2');
-
-// let prevBlockHash = '0000SHA-1234556678';
-// let currBlockData = [
-//   {
-//     amount: 100,
-//     sender: 'sender:address:frog',
-//     recipient: 'recipient:address',
-//   },
-//   {
-//     amount: 70,
-//     sender: 'sender:address:jane',
-//     recipient: 'recipient:address',
-//   },
-// ];
-
-// // let block = bitcoin.hasBlock(prevBlockHash, currBlockData, 54322);
-// // console.log(block);
-// const noncePoW = bitcoin.proofOfWork(prevBlockHash, currBlockData);
-console.log(bitcoin)
+/** get all chain & pending transactions [GET] /blockchain */
+console.log({
+  note: `All blockchain data`,
+  chain: [...bitcoin.chain],
+  pendingTransactions: [...bitcoin.pendingTransactions],
+});
+/** create a new transaction [POST] /transaction */
+const blockIndex = bitcoin.createNewTransaction(950, 'sender:address', 'recipienct:address');
+console.log({ note: `This transaction will be added in block ${blockIndex}` });
+/** mine [GET] /mine */
+const lastBlock = bitcoin.getLastBlock();
+const previousBlockHash = lastBlock.hash;
+const currentBlockData = bitcoin.pendingTransactions;
+const nonce = bitcoin.proofOfWork(previousBlockHash, currentBlockData);
+const hashBlock = bitcoin.hasBlock(previousBlockHash, currentBlockData, nonce);
+// miner fees start
+bitcoin.createNewTransaction(10, 'SENDER:OOOOOOOO', 'RECIPIENT:MINER');
+// miner fees end
+const newBlock = bitcoin.createNewBlock(nonce, previousBlockHash, hashBlock);
+console.log({ note: `New block mined successfully`, block: newBlock });
+console.log({
+  note: `All blockchain data`,
+  chain: [...bitcoin.chain],
+  pendingTransactions: [...bitcoin.pendingTransactions],
+});
