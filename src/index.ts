@@ -16,7 +16,7 @@ const lastBlock = bitcoin.getLastBlock();
 const previousBlockHash = lastBlock.hash;
 const currentBlockData = bitcoin.pendingTransactions;
 const nonce = bitcoin.proofOfWork(previousBlockHash, currentBlockData);
-const hashBlock = bitcoin.hasBlock(previousBlockHash, currentBlockData, nonce);
+const hashBlock = bitcoin.hashBlock(previousBlockHash, currentBlockData, nonce);
 // miner fees start
 bitcoin.createNewTransaction(10, 'SENDER:OOOOOOOO', 'RECIPIENT:MINER');
 // miner fees end

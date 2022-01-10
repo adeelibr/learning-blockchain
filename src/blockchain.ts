@@ -86,7 +86,7 @@ class Blockchain {
    * @param nonce
    * @returns
    */
-  hasBlock = (prevBlockHash: string, currBlockData: PendingTransactionType[], nonce: number) => {
+  hashBlock = (prevBlockHash: string, currBlockData: PendingTransactionType[], nonce: number) => {
     const dataAsString = prevBlockHash + nonce.toString() + JSON.stringify(currBlockData);
     const hash = sha256(dataAsString);
     return hash;
@@ -101,11 +101,11 @@ class Blockchain {
    */
   proofOfWork = (prevBlockHash: string, currBlockData: any) => {
     let nonce = 0;
-    let hash = this.hasBlock(prevBlockHash, currBlockData, nonce);
+    let hash = this.hashBlock(prevBlockHash, currBlockData, nonce);
 
     while (hash.substring(0, 4) !== '0000') {
       nonce = nonce + 1;
-      hash = this.hasBlock(prevBlockHash, currBlockData, nonce);
+      hash = this.hashBlock(prevBlockHash, currBlockData, nonce);
     }
 
     return nonce;
