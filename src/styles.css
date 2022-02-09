@@ -1,5 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 body {
   font-family: 'Open Sans', sans-serif;
+  background-color: #fff2b0;
+}
+
+main.main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.title {
+  font-size: 120px;
+  text-align: center;
+  background: url('https://rpsthecoder.github.io/img-repo/Taitō%20by%20Jezael%20Melgoza.jpg') center;
+  background-size: contain;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+p {
+  font-size: 30px;
 }

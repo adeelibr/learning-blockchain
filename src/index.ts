@@ -1,5 +1,7 @@
 import BlockChain from './blockchain';
 
+console.clear();
+
 const bitcoin = new BlockChain();
 
 /** get all chain & pending transactions [GET] /blockchain */

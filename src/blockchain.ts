@@ -93,7 +93,12 @@ class Blockchain {
   };
 
   /**
-   * @description create a PoW that returns a nounce which matches our PoW condition
+   * @description Create a PoW that returns a nounce which matches our PoW condition
+   *
+   * @summary Proof of stake requires participants to put cryptocurrency as 
+   * collateral for the opportunity to successfully approve transactions.
+   * Proof of work is more secure than proof of stake, but it's slower 
+   * and consumes more energy
    *
    * @param prevBlockHash
    * @param currBlockData
